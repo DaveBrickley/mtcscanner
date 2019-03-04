@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTCScanner.Android", "MTCScanner.Android\MTCScanner.Android.csproj", "{FF3518F6-B228-445D-A597-D429618EFDF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTCScanner", "MTCScanner\MTCScanner.csproj", "{A76F6A5F-FEB4-440C-A8D6-AD1388E07460}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF3518F6-B228-445D-A597-D429618EFDF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF3518F6-B228-445D-A597-D429618EFDF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF3518F6-B228-445D-A597-D429618EFDF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF3518F6-B228-445D-A597-D429618EFDF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A76F6A5F-FEB4-440C-A8D6-AD1388E07460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A76F6A5F-FEB4-440C-A8D6-AD1388E07460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A76F6A5F-FEB4-440C-A8D6-AD1388E07460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A76F6A5F-FEB4-440C-A8D6-AD1388E07460}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

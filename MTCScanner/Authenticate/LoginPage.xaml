@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MTCScanner.Authenticate.LoginPage">
+    <ContentPage.Content>
+        
+            <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+                    
+        </Grid.RowDefinitions>
+            
+        <StackLayout Grid.Row='0'>
+            
+            <Image Source="conference.png" VerticalOptions="Center" Aspect="AspectFill"/>
+            
+        </StackLayout>
+                        
+                <StackLayout Grid.Row='1' Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="We hope you have some useful conversations with delegates at the Microlise Transport Conference.Delegate information will be sent to you post-conference. &#x0a;&#x0a;Note: Scanning indicates that a delegate would like you to follow up but does not constitute full opt-in to email marketing. These permissions should be gained separately." />
+   
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                </StackLayout>
+            
+                <StackLayout Grid.Row='2' HorizontalOptions="CenterAndExpand" Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                
+                <Label FontAttributes='Bold' HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Please wait while we log you in to&#x0a;&#x0a;MTC DELEGATE SCANNER" />
+                                
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <ActivityIndicator VerticalOptions="Center" HorizontalOptions="Center" IsEnabled="true" IsRunning="true" IsVisible="true"/>
+                
+                </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

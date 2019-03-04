@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="2.7.1" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="HockeySDK.Xamarin" Version="5.1.2" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="System.Globalization" Version="4.3.0" />
+    <PackageReference Include="System.IO" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="Authenticate\" />
+    <Folder Include="Models\" />
+    <Folder Include="Scanner\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Authenticate\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Scanner\Scanner.xaml.cs">
+      <DependentUpon>Scanner.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Scanner\FullScreenScanning.xaml.cs">
+      <DependentUpon>FullScreenScanning.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SubmitResult.xaml.cs">
+      <DependentUpon>SubmitResult.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>
