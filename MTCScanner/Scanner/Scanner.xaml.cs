@@ -80,7 +80,7 @@ namespace MTCScanner.Scanner
 
         {
 
-            var action = await DisplayAlert("Edit Profile", "Complete the fields on the next page with your registered Email address and Password to edit profile information like Stand ID or Company Name", "PROCEED", "GO BACK");
+            var action = await DisplayAlert("Edit Profile", "The following page will enable you to edit profile information like Stand ID or Company Name", "PROCEED", "GO BACK");
 
             if (action)
 

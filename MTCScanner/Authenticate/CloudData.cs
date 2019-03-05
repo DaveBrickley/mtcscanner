@@ -36,7 +36,11 @@ namespace MTCScanner.Authenticate
         public static string PolicyResetPassword = "B2C_1_B2CPasswordReset";
         public static readonly string[] Scopes = { "https://mobilemicrolise.onmicrosoft.com/backends/user_impersonation" }; // Leave blank unless additional scopes have been added to AD B2C
 
-        public static string AuthorityBase = $"https://login.microsoftonline.com/tfp/{Tenant}/"; // Doesn't require editing
+
+        //public static string AuthorityBase = $"https://login.microsoftonline.com/tfp/{Tenant}/"; // Doesn't require editing
+        public static string AuthorityBase = $"https://mobilemicrolise.b2clogin.com/tfp/{Tenant}/"; // Doesn't require editing
+
+
         public static string Authority = $"{AuthorityBase}{SignUpAndInPolicy}"; // Doesn't require editing
         public static string AuthorityResetPassword = $"{AuthorityBase}{PolicyResetPassword}"; // Doesn't require editing
         public static string AuthorityEditProfile = $"{AuthorityBase}{EditProfilePolicy}"; // Doesn't require editing
@@ -154,6 +158,26 @@ namespace MTCScanner.Authenticate
 
         }
 
+        private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
+        {
+            foreach (var account in accounts)
+            {
+                string userIdentifier = account.HomeAccountId.ObjectId.Split('.')[0];
+                if (userIdentifier.Contains(policy.ToLower())) return account;
+            }
+            return null;
+        }
+
+        private IAccount GetUserByPolicy(IEnumerable<IAccount> accounts, string policy)
+        {
+            foreach (var account in accounts)
+            {
+                string accountIdentifier = account.HomeAccountId.ObjectId.Split('.')[0];
+                if (accountIdentifier.Contains(policy.ToLower())) return account;
+            }
+
+            return null;
+        }
 
         async public Task<AuthenticationResult> GetAccessToken(string type)
 
@@ -163,6 +187,8 @@ namespace MTCScanner.Authenticate
             System.Diagnostics.Debug.WriteLine("Debug: called GetAccessToken");
 
             ADB2CClient = new PublicClientApplication(ClientID, Authority);
+
+
             System.Diagnostics.Debug.WriteLine("Debug: got to IAccount");
 
             ADB2CClient.RedirectUri = RedirectUri;
@@ -171,7 +197,6 @@ namespace MTCScanner.Authenticate
 
             IEnumerable<IAccount> accounts = await ADB2CClient.GetAccountsAsync();
             IAccount firstAccount = accounts.FirstOrDefault();
-
 
 
 
@@ -191,7 +216,11 @@ namespace MTCScanner.Authenticate
                     {
 
 
-                        authenticationResult = await ADB2CClient.AcquireTokenAsync(Scopes, firstAccount, UIBehavior.SelectAccount, string.Empty, null, AuthorityEditProfile, App.UiParent);
+                        //authenticationResult = await ADB2CClient.AcquireTokenAsync(Scopes, firstAccount, UIBehavior.SelectAccount, string.Empty, null, AuthorityEditProfile, App.UiParent);
+
+                        AuthenticationResult authResult = await ADB2CClient.AcquireTokenAsync(Scopes, GetUserByPolicy(accounts, EditProfilePolicy), UIBehavior.NoPrompt, string.Empty, null, AuthorityEditProfile, App.UiParent);
+
+
 
 
                     }

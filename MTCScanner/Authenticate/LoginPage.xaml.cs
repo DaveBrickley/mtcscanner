@@ -17,7 +17,7 @@ namespace MTCScanner.Authenticate
     {
 
 
-        async void CallAuthenticate()
+        async public void CallAuthenticate()
 
         {
 
