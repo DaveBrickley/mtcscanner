@@ -25,6 +25,11 @@ namespace MTCScanner
             Properties["StandID"] = "";
             Properties["Company"] = "";
 
+            Properties["LoginName"] = "";
+            Properties["StandName"] = "";
+            Properties["CompanyName"] = "";
+
+
 
 
             Logger.LogCallback = Log;

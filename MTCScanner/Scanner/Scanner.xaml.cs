@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using MTCScanner.Authenticate;
 using Microsoft.Identity.Client;
-
+using System.Web;
 
 using Xamarin.Forms;
 
@@ -14,6 +14,12 @@ namespace MTCScanner.Scanner
         public Scanner()
         {
             InitializeComponent();
+
+            TextName.Text = App.Current.Properties["LoginName"].ToString();
+            TextStand.Text = App.Current.Properties["StandName"].ToString();
+            TextCompany.Text = App.Current.Properties["CompanyName"].ToString();
+
+
         }
 
 
@@ -70,18 +76,31 @@ namespace MTCScanner.Scanner
 
         }
 
-        async void Handle_Clicked_2(object sender, System.EventArgs e)
+        async public void EditProfile()
+
+        {
+
+            var action = await DisplayAlert("Edit Profile", "Complete the fields on the next page with your registered Email address and Password to edit profile information like Stand ID or Company Name", "PROCEED", "GO BACK");
+
+            if (action)
+
+            {
+
+
+                var x = new CloudData();
+                AuthenticationResult token = await x.GetAccessToken("edit"); // Edit Profile
+
+            }
+
+
+        }
+
+        public void Handle_Clicked_2(object sender, System.EventArgs e)
         {
 
 
 
-            var x = new CloudData();
-            AuthenticationResult token = await x.GetAccessToken("edit"); // Edit Profile
-
-            //Application.Current.MainPage = Scanner;
-
-
-
+            EditProfile();
 
 
         }

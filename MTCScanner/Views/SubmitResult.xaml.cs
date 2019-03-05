@@ -37,7 +37,7 @@ namespace MTCScanner.Views
 
             {
 
-                var action = await DisplayAlert("Success", "Your unique code was successfully saved", "TRY AGAIN", "QUIT SCANNING");
+                var action = await DisplayAlert("Success", "Your unique code was successfully saved", "OK", "QUIT SCANNING");
 
                 if (action)
 
@@ -53,11 +53,11 @@ namespace MTCScanner.Views
 
                 {
 
-                    var About = new Views.AboutPage();
+                    var Scanner = new Scanner.Scanner();
 
                     // Navigate to our scanner page
 
-                    App.Current.MainPage = About;
+                    App.Current.MainPage = Scanner;
 
                 }
 

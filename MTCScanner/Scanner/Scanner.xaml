@@ -39,11 +39,11 @@
             
 
             <StackLayout Grid.Row='2'>
-                <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" x:Name="TextName" FontSize="Medium" Text="{Binding Name}" Grid.Row="0"/>
+                <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" x:Name="TextName" FontSize="Medium" Grid.Row="0"/>
  
-                <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" x:Name="TextCompany"  FontSize="Medium" Text="{Binding Company}" Grid.Row="0"/>
+                <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" x:Name="TextCompany"  FontSize="Medium"  Grid.Row="0"/>
  
-                <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" x:Name="TextStand"  FontSize="Medium" Text="{Binding Stand}" Grid.Row="0"/>
+                <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" x:Name="TextStand"  FontSize="Medium" Grid.Row="0"/>
  
 
 

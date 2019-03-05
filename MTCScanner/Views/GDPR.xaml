@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" x:Name="UrlPage" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MTCScanner.Views.AboutPage">
-    <ContentPage.Resources>
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MTCScanner.Views.GDPR">
+ <ContentPage.Resources>
         <ResourceDictionary>
             <!--Page Level Resources: Compatibile with Xamarin Live Player -->
             <Color x:Key="Primary">#2196F3</Color>
@@ -35,7 +35,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Welcome to the Microlise Transport Conference Delegate Scanner App.&#x0a;&#x0a;Firstly, make sure that you personally, have registered as an exhibitor at: " />
+                                <Span Text="We hope you have some useful conversations with delegates at the Microlise Transport Conference.Delegate information will be sent to you post-conference. &#x0a;&#x0a;Note: Scanning indicates that a delegate would like you to follow up but does not constitute full opt-in to email marketing. These permissions should be gained separately." />
     
 
                             </FormattedString.Spans>
@@ -43,24 +43,7 @@
                     </Label.FormattedText>
                 </Label>
                 
-                                                <Label TextColor="Blue" Text="microliseconference.com">
-  <Label.GestureRecognizers>
-      <TapGestureRecognizer Tapped="OpenURL" />
-  </Label.GestureRecognizers>
-</Label>
-               
-                                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-               <Span Text="Note: Scanned information will be withheld if the above account email address is not registered as an exhibitor on our lists.&#x0a;&#x0a;" />
-               
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Button Margin="0,10,0,0" Text="CONTINUE" Clicked="Handle_Clicked" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+                <Button Margin="0,10,0,0" Text="LOG ON / CREATE AN ACCOUNT" Clicked="Handle_Clicked" BackgroundColor="{StaticResource Primary}" TextColor="White" />
             </StackLayout>
         </ScrollView>
     </Grid>

@@ -16,21 +16,7 @@
             
         </StackLayout>
                         
-                <StackLayout Grid.Row='1' Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-                
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="We hope you have some useful conversations with delegates at the Microlise Transport Conference.Delegate information will be sent to you post-conference. &#x0a;&#x0a;Note: Scanning indicates that a delegate would like you to follow up but does not constitute full opt-in to email marketing. These permissions should be gained separately." />
-   
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                
-                </StackLayout>
-            
+
                 <StackLayout Grid.Row='2' HorizontalOptions="CenterAndExpand" Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
                 
                 <Label FontAttributes='Bold' HorizontalTextAlignment="Center">

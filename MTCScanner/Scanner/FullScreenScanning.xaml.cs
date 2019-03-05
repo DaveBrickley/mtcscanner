@@ -146,7 +146,7 @@ namespace MTCScanner.Scanner
 
                 _scanView.IsScanning = true;
 
-                System.Diagnostics.Debug.WriteLine("Debug: On appearing has been called, setting IsScanning to True");
+                System.Diagnostics.Debug.WriteLine("Debug: On appearing has been called, setting IsScanning to True " + _scanView.IsAnalyzing);
 
             }
             if (_scanView.IsAnalyzing == false)
@@ -179,7 +179,7 @@ namespace MTCScanner.Scanner
         {
 
 
-            var About = new Views.AboutPage();
+            var Scanner = new Scanner();
 
             if (_scanView.IsScanning == true)
             {
@@ -200,7 +200,7 @@ namespace MTCScanner.Scanner
             // Navigate to our scanner page
             //await Navigation.PushModalAsync(About);
 
-            Application.Current.MainPage = About;
+            Application.Current.MainPage = Scanner;
         }
     }
 }

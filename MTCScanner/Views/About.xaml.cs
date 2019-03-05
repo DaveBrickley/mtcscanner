@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Plugin.Connectivity;
+using System.Windows.Input;
 
 using Xamarin.Forms;
 
@@ -16,7 +17,7 @@ namespace MTCScanner.Views
 
             {
 
-                Application.Current.MainPage = new Authenticate.LoginPage();
+                Application.Current.MainPage = new Views.GDPR();
             }
 
             else
@@ -33,6 +34,12 @@ namespace MTCScanner.Views
 
         }
 
+
+
+        protected void OpenURL(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri("http://microliseconference.com"));
+        }
 
         public AboutPage()
         {

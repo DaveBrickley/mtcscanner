@@ -58,6 +58,14 @@ namespace MTCScanner.Authenticate
 
             };
 
+            App.Current.Properties["LoginName"] = "Logged in as: " + y.displayName;
+            App.Current.Properties["StandName"] = "Stand ID: " + y.StandID;
+            App.Current.Properties["CompanyName"] = "Company: " + y.Company;
+
+
+
+            await App.Current.SavePropertiesAsync();
+
             var Scanner = new Scanner.Scanner();
 
             Scanner.BindingContext = displayName;
