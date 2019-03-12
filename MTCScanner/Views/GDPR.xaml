@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
 
-                    <Image Source="conference.png" VerticalOptions="Center" Aspect="AspectFill"/>
+                    <Image Source="newconference.png" VerticalOptions="Center" Aspect="AspectFill"/>
 
         </StackLayout>
         <ScrollView Grid.Row="1">

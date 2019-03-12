@@ -24,6 +24,8 @@ namespace MTCScanner
             Properties["mail"] = "";
             Properties["StandID"] = "";
             Properties["Company"] = "";
+            Properties["Password"] = "";
+
 
             Properties["LoginName"] = "";
             Properties["StandName"] = "";
@@ -53,6 +55,7 @@ namespace MTCScanner
         protected override void OnStart()
         {
             // Handle when your app starts
+
         }
 
         protected override void OnSleep()

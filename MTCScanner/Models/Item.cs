@@ -20,6 +20,8 @@ namespace MTCScanner.Models
         public string StandID { get; set; }
         public string userPrincipalName { get; set; }
         public string Company { get; set; }
+        public string Password { get; set; }
+
 
 
 

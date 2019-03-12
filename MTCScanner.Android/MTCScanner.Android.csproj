@@ -110,6 +110,17 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\drawable\conference.png" />
+    <AndroidResource Include="Resources\drawable\newconference.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\appicon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\appicon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\appicon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\appicon.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\appicon.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\appicon.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\appicon.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\appicon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\appicon.png" />
+    <AndroidResource Include="Resources\drawable\appicon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

@@ -64,6 +64,45 @@ namespace MTCScanner.Authenticate
         HttpClient client = new HttpClient();
 
 
+        async public Task<string> GetAccessID()
+
+        {
+
+
+            try
+
+            {
+
+                string SessionToken = App.Current.Properties["UserAccessToken"] as string;
+
+                string append = "GraphAPI/accessid";
+
+                JObject postContents = new JObject();
+
+                var content = new StringContent(postContents.ToString(), Encoding.UTF8, "application/json");
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", SessionToken);
+
+                var result = client.PostAsync(BaseURI + append, content).Result;
+
+                var contents = await result.Content.ReadAsStringAsync();
+
+                return contents;
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                System.Diagnostics.Debug.WriteLine("Debug: Failed to get access ID " + ex.Message);
+
+                return null;
+
+            }
+
+
+        }
+
         async public Task<string> PostBarcode(string barcode, string notes)
 
         {
@@ -111,10 +150,12 @@ namespace MTCScanner.Authenticate
 
         {
 
+
             string SessionToken = App.Current.Properties["UserAccessToken"] as string;
             string uniqueID = App.Current.Properties["uniqueUserID"] as string;
 
             System.Diagnostics.Debug.WriteLine("Debug: Called GetDisplayName");
+
 
 
             string append = "GraphAPI/GetUserName";
@@ -135,17 +176,78 @@ namespace MTCScanner.Authenticate
             GraphUser userInfo = JsonConvert.DeserializeObject<GraphUser>(contents);
 
             System.Diagnostics.Debug.WriteLine("Debug: GetDisplayName serialised userInfo " + uniqueID);
-            System.Diagnostics.Debug.WriteLine("Debug: GetDisplayName serialised displayName " + userInfo.displayName);
-            System.Diagnostics.Debug.WriteLine("Debug: GetDisplayName serialised stand ID " + userInfo.StandID);
-            System.Diagnostics.Debug.WriteLine("Debug: GetDisplayName principle name " + userInfo.userPrincipalName);
-            System.Diagnostics.Debug.WriteLine("Debug: GetDisplayName company name " + userInfo.Company);
-
-
-
-            App.Current.Properties["displayName"] = userInfo.displayName;
             App.Current.Properties["mail"] = userInfo.mail;
-            App.Current.Properties["StandID"] = userInfo.StandID;
-            App.Current.Properties["Company"] = userInfo.Company;
+
+
+            if (userInfo.displayName.Length == 0)
+
+            {
+
+                App.Current.Properties["displayName"] = "Not set";
+
+            }
+
+            else
+
+            {
+
+                App.Current.Properties["displayName"] = userInfo.displayName;
+                System.Diagnostics.Debug.WriteLine("Debug: GetDisplayName serialised displayName " + userInfo.displayName);
+            }
+
+            if (userInfo.StandID == null)
+
+            {
+
+                App.Current.Properties["StandID"] = "Not set";
+
+            }
+
+            else
+
+            {
+
+                App.Current.Properties["StandID"] = userInfo.StandID;
+                System.Diagnostics.Debug.WriteLine("Debug: GetDisplayName serialised stand ID " + userInfo.StandID);
+
+
+            }
+
+            if (userInfo.Company == null)
+
+            {
+
+                App.Current.Properties["Company"] = "Not set";
+
+            }
+
+            else
+
+            {
+
+                App.Current.Properties["Company"] = userInfo.Company;
+                System.Diagnostics.Debug.WriteLine("Debug: GetDisplayName company name " + userInfo.Company);
+
+            }
+
+            System.Diagnostics.Debug.WriteLine("Debug: password length " + userInfo.Password);
+
+            if (userInfo.Password == null)
+
+            {
+
+                App.Current.Properties["Password"] = "null";
+
+                System.Diagnostics.Debug.WriteLine("Debug: GetDisplayName password name " + userInfo.Password);
+            }
+
+            else
+
+            {
+
+                App.Current.Properties["Password"] = userInfo.Password;
+
+            }
 
 
 
@@ -220,9 +322,6 @@ namespace MTCScanner.Authenticate
 
                         AuthenticationResult authResult = await ADB2CClient.AcquireTokenAsync(Scopes, GetUserByPolicy(accounts, EditProfilePolicy), UIBehavior.NoPrompt, string.Empty, null, AuthorityEditProfile, App.UiParent);
 
-
-
-
                     }
 
                     catch (Exception ez)
@@ -258,6 +357,7 @@ namespace MTCScanner.Authenticate
                     App.Current.Properties["uniqueUserID"] = authenticationResult.UniqueId;
 
                     System.Diagnostics.Debug.WriteLine("Debug: Saving unique user ID " + authenticationResult.UniqueId);
+
 
                 }
 

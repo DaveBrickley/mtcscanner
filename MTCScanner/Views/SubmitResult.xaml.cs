@@ -37,21 +37,8 @@ namespace MTCScanner.Views
 
             {
 
-                var action = await DisplayAlert("Success", "Your unique code was successfully saved", "OK", "QUIT SCANNING");
+                await DisplayAlert("Success", "Your unique code was successfully saved", "OK");
 
-                if (action)
-
-                {
-                    var scanPage = new FullScreenScanning();
-                    // Navigate to our scanner page
-
-                    App.Current.MainPage = scanPage;
-
-                }
-
-                else
-
-                {
 
                     var Scanner = new Scanner.Scanner();
 
@@ -59,7 +46,6 @@ namespace MTCScanner.Views
 
                     App.Current.MainPage = Scanner;
 
-                }
 
             }
 
