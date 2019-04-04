@@ -90,6 +90,23 @@ namespace MTCScanner.Scanner
 
                     //Submit.SubmitCodeToCloud(result.Text);
 
+                    if (_scanView.IsScanning == true)
+                    {
+
+                        _scanView.IsScanning = false;
+
+                        System.Diagnostics.Debug.WriteLine("Debug: On click has been called, setting IsScanning to false");
+
+                    }
+                    if (_scanView.IsAnalyzing == true)
+
+                    {
+
+                        _scanView.IsAnalyzing = false;
+                        System.Diagnostics.Debug.WriteLine("Debug: On click has been called, setting IsAnalyzing to false");
+
+                    }
+
 
                     var Submit = new Views.SubmitResult();
 
